@@ -1,0 +1,69 @@
+﻿@using WebHelpers.Mvc5
+<aside class="main-sidebar">
+    <section class="sidebar">
+        @* BEGIN Search *@
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        @* END Search *@
+        @* BEGIN Menu *@
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">HEADER</li>
+            <li class="@Url.IsLinkActive("Index", "Home")">
+                <a href="@Url.Action("Index", "Home")"><i class="fa fa-link"></i> <span>Home</span></a>
+            </li>
+            <li class="@Url.IsLinkActive("AnotherLink", "Home")">
+                <a href="@Url.Action("AnotherLink", "Home")"><i class="fa fa-link"></i> <span>Another Link</span></a>
+            </li>
+	        <li class="treeview">
+		        <a href="#">
+			        <i class="fa fa-link"></i> <span>SetupModule</span>
+			        <span class="pull-right-container">
+				        <i class="fa fa-angle-left pull-right"></i>
+			        </span>
+		        </a>
+		        <ul class="treeview-menu">
+			        <li class="@Url.IsLinkActive("DepartmentCreate", "Departments")">
+				        <a href="@Url.Action("DepartmentCreate", "Departments")"> <span>Add Departments</span></a>
+			        </li>
+			        <li class="@Url.IsLinkActive("New", "Designatons")">
+				        <a href="@Url.Action("New", "Designatons")"> <span>Add Designations</span></a>
+			        </li>
+			        <li class="@Url.IsLinkActive("New", "Organizations")">
+				        <a href="@Url.Action("New", "Organizations")"> <span>Add Organization</span></a>
+			        </li>
+			        <li class="@Url.IsLinkActive("University", "Universitys")">
+				        <a href="@Url.Action("University", "Universitys")"> <span>Add University</span></a>
+			        </li>
+			        <li class="@Url.IsLinkActive("Language", "Languages")">
+				        <a href="@Url.Action("Language", "Languages")"> <span>Add Language</span></a>
+			        </li>
+		        </ul>
+	        </li>
+	        <li class="treeview">
+		        <a href="#">
+			        <i class="fa fa-user-plus"></i> <span>Operational Module</span>
+			        <span class="pull-right-container">
+				        <i class="fa fa-angle-left pull-right"></i>
+			        </span>
+		        </a>
+		        <ul class="treeview-menu">
+			        <li class="@Url.IsLinkActive("EmployeeCreate", "GeneralInformations")">
+				        <a href="@Url.Action("EmployeeCreate", "GeneralInformations")"> <span>Add Employee</span></a>
+			        </li>
+			        <li class="@Url.IsLinkActive("EducationInfoCreate", "EducationInfos")">
+				        <a href="@Url.Action("EducationInfoCreate", "EducationInfos")"> <span>Add Education</span></a>
+			        </li>
+		        </ul>
+	        </li>
+        </ul>
+        @* END Menu *@
+    </section>
+</aside>

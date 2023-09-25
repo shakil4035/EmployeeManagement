@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6146C9DF-CFD7-4E36-B7FD-82206549A286}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pims.Persistence</RootNamespace>
+    <AssemblyName>Pims.Persistence</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database File\PimsDbContext.cs" />
+    <Compile Include="Migrations\202308291610076_CreateDepartment.cs" />
+    <Compile Include="Migrations\202308291610076_CreateDepartment.Designer.cs">
+      <DependentUpon>202308291610076_CreateDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202308311949472_DesignationCreate.cs" />
+    <Compile Include="Migrations\202308311949472_DesignationCreate.Designer.cs">
+      <DependentUpon>202308311949472_DesignationCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309011729114_createOrganization.cs" />
+    <Compile Include="Migrations\202309011729114_createOrganization.Designer.cs">
+      <DependentUpon>202309011729114_createOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309011802333_UpdateOrganization.cs" />
+    <Compile Include="Migrations\202309011802333_UpdateOrganization.Designer.cs">
+      <DependentUpon>202309011802333_UpdateOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309031736550__createUniversity.cs" />
+    <Compile Include="Migrations\202309031736550__createUniversity.Designer.cs">
+      <DependentUpon>202309031736550__createUniversity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309031851504__createLanguage.cs" />
+    <Compile Include="Migrations\202309031851504__createLanguage.Designer.cs">
+      <DependentUpon>202309031851504__createLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309051714563__createGenarelInformation.cs" />
+    <Compile Include="Migrations\202309051714563__createGenarelInformation.Designer.cs">
+      <DependentUpon>202309051714563__createGenarelInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309051748462_updateSalary.cs" />
+    <Compile Include="Migrations\202309051748462_updateSalary.Designer.cs">
+      <DependentUpon>202309051748462_updateSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309051923067_updateGeneral.cs" />
+    <Compile Include="Migrations\202309051923067_updateGeneral.Designer.cs">
+      <DependentUpon>202309051923067_updateGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309051927176_updateGeneral1.cs" />
+    <Compile Include="Migrations\202309051927176_updateGeneral1.Designer.cs">
+      <DependentUpon>202309051927176_updateGeneral1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309081718049__updateNatinolid.cs" />
+    <Compile Include="Migrations\202309081718049__updateNatinolid.Designer.cs">
+      <DependentUpon>202309081718049__updateNatinolid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309201601077_educationTable.cs" />
+    <Compile Include="Migrations\202309201601077_educationTable.Designer.cs">
+      <DependentUpon>202309201601077_educationTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pims.Core\Pims.Core.csproj">
+      <Project>{E3B2045E-C82F-43AC-8296-A47B831CF6DE}</Project>
+      <Name>Pims.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202308291610076_CreateDepartment.resx">
+      <DependentUpon>202308291610076_CreateDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308311949472_DesignationCreate.resx">
+      <DependentUpon>202308311949472_DesignationCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309011729114_createOrganization.resx">
+      <DependentUpon>202309011729114_createOrganization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309011802333_UpdateOrganization.resx">
+      <DependentUpon>202309011802333_UpdateOrganization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309031736550__createUniversity.resx">
+      <DependentUpon>202309031736550__createUniversity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309031851504__createLanguage.resx">
+      <DependentUpon>202309031851504__createLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309051714563__createGenarelInformation.resx">
+      <DependentUpon>202309051714563__createGenarelInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309051748462_updateSalary.resx">
+      <DependentUpon>202309051748462_updateSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309051923067_updateGeneral.resx">
+      <DependentUpon>202309051923067_updateGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309051927176_updateGeneral1.resx">
+      <DependentUpon>202309051927176_updateGeneral1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309081718049__updateNatinolid.resx">
+      <DependentUpon>202309081718049__updateNatinolid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309201601077_educationTable.resx">
+      <DependentUpon>202309201601077_educationTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

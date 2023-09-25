@@ -1,0 +1,152 @@
+﻿@using System.Collections.Specialized
+@model Pims.Core.ViewModel.Operation_module.EducationInfoViewModel
+@{
+    ViewBag.Title = "EducationInfoCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12" id="myForm">
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="box box-primary">
+                <div class="box-header with-border"><h5 class="box-title">Search</h5></div>
+                <div class="box-body">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <input type="text" id="txtFindTrainee" class="form-control" placeholder="Search By NSSL Id...">
+                                        <span class="input-group-addon btn btn-primary" id="btnSearch"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </div>
+                            <div class="col-md-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.NameEnglish, "Name", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.NameEnglish, new { htmlAttributes = new { @class = "form-control", @id = "searchName", @disabled = "disabled" } })
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-4">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PhoneNumber, "Phone No", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "searchPhone", @disabled = "disabled" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="box-header with-border"><h4 class="box-title">Education Info</h4></div>
+                            <div class="box-body">
+                                <div class="col-md-6 col-sm-6">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ExamName, "Exam Name *", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.ExamName, new { htmlAttributes = new { @class = "form-control", @tabindex = "1" } })
+                                        @Html.ValidationMessageFor(model => model.ExamName, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.UniversityId, "University Name *", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownListFor(c => c.UniversityId, null, "", htmlAttributes: new { @class = "form-control", @tabindex = "3" })
+                                        @Html.ValidationMessageFor(model => model.UniversityId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SubjectName, "Subject Name *", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.SubjectName, new { htmlAttributes = new { @class = "form-control", @tabindex = "5" } })
+                                        @Html.ValidationMessageFor(model => model.SubjectName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PassingYear, "Pass Year *", htmlAttributes: new { @class = "control-label" })
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            @Html.EditorFor(model => model.PassingYear, new { htmlAttributes = new { @class = "form-control datepicker", @tabindex = "2" } })
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.PassingYear, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Result, "Result *", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.Result, new { htmlAttributes = new { @class = "form-control", @tabindex = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Result, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SchoolOrCollage, "School/Callege *", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.SchoolOrCollage, new { htmlAttributes = new { @class = "form-control ", @tabindex = "6" } })
+                                        @Html.ValidationMessageFor(model => model.SchoolOrCollage, "", new { @class = "text-danger" })
+                                    </div>
+                                    @*<input type="hidden" name="CreateBy" id="CreateBy" value="@{@createBy}" />*@
+                                </div>
+
+                            </div>
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+
+                                    @Html.HiddenFor(c => c.Id)
+                                    @Html.HiddenFor(c => c.GenarelInformationId)
+
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="button" id="btnSubmit" value="SAVE" class="btn btn-primary btn-block" tabindex="7" />
+                                    </div>
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="hidden" id="pageNumber" />
+                                        <input type="hidden" id="personalId" />
+                                        <a href="@Url.Action("EmployeeCreate", "GeneralInformations")" class="btn btn-primary btn-block" id="previousButton"><i class="fa fa-arrow-left">Back</i></a>
+                                    </div>
+
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="button" id="btnRefresh" value="CLEAR" class="btn btn-primary btn-block" />
+                                    </div>
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="hidden" id="pageNumber" />
+                                        <input type="hidden" id="personalId" />
+                                        <a href="@Url.Action("HomeTrainingEntry", "HomeTrainingInformations")" class="btn btn-primary btn-block" id="nextButton">Next <i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="box box-info">
+            <div class="box-header"><h5 class="box-title">History</h5></div>
+            <div class="box-body">
+                <table id="eduList" class="table table-bordered table-hover display nowrap" style="width: 100%">
+                    <thead>
+                        <tr>
+
+                            <th style="text-align: center">ExamName</th>
+                            <th style="text-align: center">University</th>
+                            <th style="text-align: center">School/College</th>
+                            <th style="text-align: center">Subject</th>
+                            <th style="text-align: center">Result</th>
+                            <th style="text-align: center"></th>
+                            <th style="text-align: center"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+
+    <script src="~/Scripts/FromScript/OperationalForm/educationFrom.js"></script>
+}
